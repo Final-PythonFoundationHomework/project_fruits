@@ -7,5 +7,14 @@ def get_cheapest_fruit(data:str)->str:
     returns:
         name of the cheapest fruit
     """
+    s=[]
+    name=[]
     # your code here
-    pass
+    f=open(data,mode='r').read()
+    arr=f.split('\n')
+    for i in arr[1:-1]:
+        s.append(float(i.split(',')[1]))
+        name.append(i.split(',')[0])
+    ind=min(s)
+    return name[s.index(ind)]
+print(get_cheapest_fruit('fruits.csv'))
